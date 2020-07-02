@@ -1,0 +1,17 @@
+<div class="login-container">
+<mat-card class="pd20 mat-elevation-z8">
+    <form class="login-form mgbtm15" #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
+        <mat-form-field class="login-mat-form-field">
+            <mat-label>UserName</mat-label>
+            <input type="text" name="username" ngModel matInput required #uname="ngModel" />
+            <mat-error *ngIf="(submitted || uname.touched) && uname.invalid && uname.errors.required">Please enter name</mat-error>
+        </mat-form-field>
+        <mat-form-field class="login-mat-form-field">
+            <mat-label>Password</mat-label>
+            <input type="password" name="password" ngModel matInput required #pwd="ngModel" />
+            <mat-error *ngIf="(submitted || pwd.touched) && pwd.invalid && pwd.errors.required">Please enter password</mat-error>
+        </mat-form-field>
+        <button class="login-btn" type="submit" mat-raised-button color="primary">Login</button>
+    </form>
+</mat-card>
+</div>

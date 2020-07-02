@@ -1,0 +1,29 @@
+.app-hdr{
+    margin-bottom: 40px;
+}
+.home-icon, .menu-icon{
+    cursor: pointer;
+    margin-right: 10px;
+}
+.app-hdr .nav-div{
+    position: absolute;
+    right: 10px;
+}
+.home-icon{
+  display: block;
+}
+.menu-icon{
+  display: none;
+}
+.link-css{
+  text-decoration: none;
+  color: inherit;
+}
+@media (max-width:600px){
+  .home-icon{
+    display: none;
+  }
+  .menu-icon{
+    display: block;
+  }
+}

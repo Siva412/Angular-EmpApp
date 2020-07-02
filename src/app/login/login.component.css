@@ -1,0 +1,11 @@
+.login-container{
+    width: 40%;
+    margin: auto;
+}
+.login-mat-form-field{
+    width: 100%;
+}
+.login-btn{
+    margin-top: 20px;
+    width: 90px;
+}

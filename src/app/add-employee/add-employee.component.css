@@ -1,0 +1,20 @@
+.add-container{
+  width: 80%;
+  margin: auto;
+}
+.add-form-field, .add-radio{
+  width: 40%;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+.add-radio mat-label{
+  margin-right: 15px;
+}
+.add-radio .mat-radio-button{
+  margin-right: 20px;
+}
+@media (max-width:600px){
+  .add-form-field, .add-radio{
+    width: 100%;
+  }
+}
