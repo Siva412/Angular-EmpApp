@@ -1,7 +1,8 @@
 export interface IEmployee{
     empId: string;
     name: string;
-    designation: string;
+    role: string;
     domain: string;
-    salary?: number
+    testType? :string;
+    designation:string
 }

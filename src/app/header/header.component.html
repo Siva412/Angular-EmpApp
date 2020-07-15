@@ -1,10 +1,11 @@
 <mat-toolbar color="primary" class="app-hdr">
-  <a class="link-css" [routerLink]="['/home']">
-    <mat-icon aria-hidden="false" aria-label="menu icon" class="home-icon">home</mat-icon>
-    <mat-icon aria-hidden="false" aria-label="menu icon" class="menu-icon" (click)="toggleSideMenu()">menu</mat-icon>
+  <a class="link-css" [routerLink]="['/home']" *ngIf="loggedInFlag">
+    <mat-icon aria-hidden="false" aria-label="menu icon" class="home-icon web-view">home</mat-icon>
+    <mat-icon aria-hidden="false" aria-label="menu icon" class="menu-icon mob-view" (click)="toggleSideMenu()">menu</mat-icon>
   </a>
-    <div>My Application</div>
-    <div class="nav-div">
+  <div>My Application</div>
+  <div class="nav-div web-view" *ngIf="loggedInFlag">
     <button mat-button (click)="navigateAdd()">Add Employee</button>
-</div>
+    <button mat-button (click)="logout()">Logout</button>
+  </div>
 </mat-toolbar>

@@ -11,7 +11,10 @@
             <input type="password" name="password" ngModel matInput required #pwd="ngModel" />
             <mat-error *ngIf="(submitted || pwd.touched) && pwd.invalid && pwd.errors.required">Please enter password</mat-error>
         </mat-form-field>
+        <div class="btn-group">
         <button class="login-btn" type="submit" mat-raised-button color="primary">Login</button>
+        <button mat-raised-button [routerLink]="['/signup']" routerLinkActive="router-link-active" >Sign Up</button>
+    </div>
     </form>
 </mat-card>
 </div>

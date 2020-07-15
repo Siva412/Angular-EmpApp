@@ -8,3 +8,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mgbtm15{
     margin-bottom: 15px;
 }
+.cursor-ptr{
+    cursor: pointer;
+}
+.web-view{
+    display: block !important;
+}
+.mob-view{
+    display: none !important;
+}
+.btn-group button{
+    margin-right: 10px;
+    cursor: pointer;
+}
+@media (max-width:600px){
+    .web-view{
+        display: none !important;
+    }
+    .mob-view{
+        display: block !important;
+    }
+}

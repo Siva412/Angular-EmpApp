@@ -1,0 +1,9 @@
+<div class="bck-drop" (click)="close.emit('close')"></div>
+<div class="modal-block">
+    <div class="modal-content">
+        <ng-content></ng-content>
+    </div>
+    <div>
+        <button mat-raised-button color="primary" (click)="close.emit('ok')">OK</button>
+    </div>
+</div>

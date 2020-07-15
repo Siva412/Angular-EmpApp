@@ -11,6 +11,8 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
+import { ModalComponent } from './modal/modal.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { SideNavComponent } from './side-nav/side-nav.component';
     LoginComponent,
     HomeComponent,
     AddEmployeeComponent,
-    SideNavComponent
+    SideNavComponent,
+    ModalComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,

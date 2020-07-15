@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router }  from '@angular/router';
 import { IEmployee } from '../interfaces/app.interfaces';
 import { MatTableDataSource } from '@angular/material';
 
@@ -11,19 +12,39 @@ import { MatTableDataSource } from '@angular/material';
 export class HomeComponent implements OnInit {
   employeeList = new MatTableDataSource<IEmployee>();
   columnList: string[] = [];
-  constructor() { }
+  showModal: boolean = false;
+  modalData: IEmployee;
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.employeeList.data = [
-      {name: "John", empId: "123", designation: "developer", domain: "IT"},
-      {name: "Elon", empId: "123", designation: "tester", domain: "IT"},
-      {name: "Larry", empId: "123", designation: "developer", domain: "IT"},
-      {name: "Hawking", empId: "123", designation: "developer", domain: "IT"},
-      {name: "Tesla", empId: "123", designation: "developer", domain: "IT"}
+      {name: "John", empId: "123", role: "Developer", designation:"ITA", domain: "IT"},
+      {name: "Elon", empId: "124", role: "Tester", designation:"ITA", domain: "IT", testType: "auto"},
+      {name: "Larry", empId: "125", role: "Developer", designation:"ITA", domain: "IT"},
+      {name: "Hawking", empId: "126", role: "Developer", designation:"ITA", domain: "IT"},
+      {name: "Tesla", empId: "127", role: "Developer", designation:"ITA", domain: "IT"}
     ];
-    this.columnList = ['empId', 'name', 'designation', 'domain', 'edit'];
+    this.columnList = ['empId', 'name', 'role', 'domain', 'edit', 'delete'];
   }
   filterChange(filterData: string):void{
     this.employeeList.filter = filterData.trim().toLowerCase();
+  }
+  editEmployee(empData, type){
+    if(type === 'edit'){
+      this.router.navigate(['addAction'],{state:{"editData": empData}});
+    }
+    else{
+      this.showModal = true;
+      this.modalData = empData;
+    }
+  }
+  closeModal(type: string){
+    this.showModal = false;
+    if(type === 'ok'){
+      let modArray = this.employeeList.data.filter(a => {
+        return a.empId !== this.modalData.empId;
+      });
+      this.employeeList.data = modArray;
+    }
   }
 }

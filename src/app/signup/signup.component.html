@@ -1,0 +1,29 @@
+<div class="signup-container">
+    <form [formGroup]="signUpForm" class="signup-form" (ngSubmit)="signupSubmit()" novalidate>
+        <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput type="text" formControlName="name" autocomplete="off" />
+            <mat-error *ngIf="(formSubmitted || signUpForm.get('name').touched) && signUpForm.get('name').invalid">Please enter Name</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput type="text" formControlName="email" autocomplete="off" />
+            <mat-error *ngIf="(formSubmitted || signUpForm.get('email').touched) && signUpForm.get('email').invalid">
+                <span *ngIf="signUpForm.get('email')?.errors.required">Please enter Email</span>
+                <span *ngIf="signUpForm.get('email')?.errors.email">Please enter a valid Email</span>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Password</mat-label>
+            <input matInput type="text" formControlName="password" autocomplete="off" />
+            <mat-error *ngIf="(formSubmitted || signUpForm.get('password').touched) && signUpForm.get('password').invalid">
+                <span *ngIf="signUpForm.get('password')?.errors.required">Please enter password</span>
+                <span *ngIf="signUpForm.get('password')?.errors.minlength">Minimum length is 5</span>
+            </mat-error>
+        </mat-form-field>
+        <div class="btn-group">
+            <button type="submit" mat-raised-button color="primary">Submit</button>
+            <button type="button" [routerLink]="['/']" mat-stroked-button>Cancel</button>
+        </div>
+    </form>
+</div>

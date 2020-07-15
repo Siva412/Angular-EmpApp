@@ -8,15 +8,22 @@
     <table mat-table [dataSource]="employeeList" class="mat-elevation-z8">
         <mat-text-column name="name" headerText="Name"></mat-text-column>
         <mat-text-column name="empId" headerText="Employee ID"></mat-text-column>
-        <mat-text-column name="designation" headerText="Designation"></mat-text-column>
+        <mat-text-column name="role" headerText="Role"></mat-text-column>
         <mat-text-column name="domain" headerText="Domain"></mat-text-column>
         <ng-container matColumnDef="edit">
             <th mat-header-cell *matHeaderCellDef>Edit</th>
             <td mat-cell *matCellDef="let element">
-                <mat-icon class="mat-18">edit</mat-icon>
+                <mat-icon class="mat-18 cursor-ptr" (click)="editEmployee(element, 'edit')">edit</mat-icon>
+            </td>
+        </ng-container>
+        <ng-container matColumnDef="delete">
+            <th mat-header-cell *matHeaderCellDef>Delete</th>
+            <td mat-cell *matCellDef="let element">
+                <mat-icon class="mat-18 cursor-ptr" (click)="editEmployee(element, 'delete')">delete</mat-icon>
             </td>
         </ng-container>
         <tr mat-header-row *matHeaderRowDef="columnList"></tr>
         <tr mat-row *matRowDef="let row; columns: columnList"></tr>
     </table>
 </div>
+<app-modal *ngIf="showModal" (closeModal)="closeModal($event)">Do you want to delete the employee {{modalData.name}}?</app-modal>

@@ -12,14 +12,26 @@
       <mat-form-field class="add-form-field">
         <mat-label>Name</mat-label>
         <input matInput type="text" formControlName="name" />
+        <mat-error *ngIf="addEmployeeForm.get('name').touched && addEmployeeForm.get('name').invalid">
+          <span *ngIf="addEmployeeForm.get('name').errors?.required">Please enter Employee Name</span>
+          <span *ngIf="addEmployeeForm.get('name').errors?.maxlength || addEmployeeForm.get('name').errors?.minlength">Please enter a Name between 3 and 50</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="add-form-field">
         <mat-label>Designation</mat-label>
         <input matInput type="text" formControlName="designation" />
+        <mat-error *ngIf="addEmployeeForm.get('designation').touched && addEmployeeForm.get('designation').invalid">
+          <span *ngIf="addEmployeeForm.get('designation').errors?.required">Please enter Designation</span>
+          <span *ngIf="addEmployeeForm.get('designation').errors?.maxlength || addEmployeeForm.get('designation').errors?.minlength">Please enter a Desg between 3 and 50</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="add-form-field">
         <mat-label>Domain</mat-label>
         <input matInput type="text" formControlName="domain" />
+        <mat-error *ngIf="addEmployeeForm.get('domain').touched && addEmployeeForm.get('domain').invalid">
+          <span *ngIf="addEmployeeForm.get('domain').errors?.required">Please enter Domain</span>
+          <span *ngIf="addEmployeeForm.get('domain').errors?.maxlength || addEmployeeForm.get('domain').errors?.minlength">Please enter Domain petween 3 and 50</span>
+        </mat-error>
       </mat-form-field>
       <mat-form-field class="add-form-field">
         <mat-label>Role</mat-label>
@@ -46,7 +58,7 @@
       </div>
       <div>
         <button class="login-btn" type="submit" mat-raised-button color="primary">
-          Add
+          {{isEdit?"MODIFY":"ADD"}}
         </button>
       </div>
     </form>
