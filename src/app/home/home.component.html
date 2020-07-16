@@ -4,6 +4,9 @@
             <mat-label>Filter</mat-label>
             <input type="text" matInput (input)="filterChange($event.target.value)" />
         </mat-form-field>
+        <div class="add-block" (click)="navigateToAdd()">
+            <mat-icon color="primary">add_circle</mat-icon><span>Add Employee</span>
+        </div>
     </div>
     <table mat-table [dataSource]="employeeList" class="mat-elevation-z8">
         <mat-text-column name="name" headerText="Name"></mat-text-column>

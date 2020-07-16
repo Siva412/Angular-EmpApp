@@ -47,4 +47,7 @@ export class HomeComponent implements OnInit {
       this.employeeList.data = modArray;
     }
   }
+  navigateToAdd(){
+    this.router.navigate(['/addAction']);
+  }
 }

@@ -14,13 +14,19 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  loginSubmit(form: HTMLFormElement){
+  loginSubmit(form: HTMLFormElement) {
     this.submitted = true;
-    if(form.form.valid){
-      this.commonService.loggedIn();
-      this.router.navigate(['/home']);
+    if (form.valid) {
+      this.commonService.loginApi({
+        email: form.value.username,
+        password: form.value.password
+      }).subscribe((response: any) => {
+        if (response.rc === '0') {
+          this.commonService.loggedIn();
+          this.router.navigate(['/home']);
+        }
+      });
     }
-    console.log(form);
   }
 
 }

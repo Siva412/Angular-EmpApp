@@ -1,5 +1,6 @@
 <div class="add-container">
   <mat-card class="pd20 mat-elevation-z8">
+    <h4>{{isEdit?"Modify":"Add"}}</h4>
     <form [formGroup]="addEmployeeForm" (ngSubmit)="addSubmit()" class="add-form">
       <mat-form-field class="add-form-field">
         <mat-label>Employee ID</mat-label>

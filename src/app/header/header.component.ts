@@ -23,10 +23,6 @@ export class HeaderComponent implements OnInit, OnDestroy {
   ngOnDestroy(){
     this.loggedInSubscrition.unsubscribe();
   }
-
-  navigateAdd(){
-    this.router.navigate(['/addAction']);
-  }
   toggleSideMenu(){
     this.toggleMenu.emit();
   }

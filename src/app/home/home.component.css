@@ -8,3 +8,12 @@
 table .mat-header-cell{
     font-size: 15px;
 }
+.add-block{
+    display: flex;
+    align-items: center;
+    float: right;
+    cursor: pointer;
+}
+.add-block span{
+    margin-left: 5px;
+}
