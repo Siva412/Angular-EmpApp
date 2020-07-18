@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="app-hdr">
-  <a class="link-css" [routerLink]="['/home']" *ngIf="loggedInFlag">
-    <mat-icon aria-hidden="false" aria-label="menu icon" class="home-icon web-view">home</mat-icon>
+  <a class="link-css" *ngIf="loggedInFlag">
+    <mat-icon aria-hidden="false" aria-label="menu icon" class="home-icon web-view" (click)="navigateHome()">home</mat-icon>
     <mat-icon aria-hidden="false" aria-label="menu icon" class="menu-icon mob-view" (click)="toggleSideMenu()">menu</mat-icon>
   </a>
   <div>My Application</div>

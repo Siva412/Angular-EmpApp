@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material-module/app-material.module';
 import { AppRoutingModule } from './app-routing.module';
 
@@ -14,6 +14,7 @@ import { AddEmployeeComponent } from './add-employee/add-employee.component';
 import { SideNavComponent } from './side-nav/side-nav.component';
 import { ModalComponent } from './modal/modal.component';
 import { SignupComponent } from './signup/signup.component';
+import { AuthInterceptor } from './services/authIntercept.service';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,9 @@ import { SignupComponent } from './signup/signup.component';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,4 +31,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.commonService.loggedOut();
     this.router.navigate(['/login']);
   }
+  navigateHome(){
+    this.router.navigate(['/home'])
+  }
 }

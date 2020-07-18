@@ -11,7 +11,8 @@ export class AppComponent implements OnInit {
   constructor(private commonService: CommonSerivce){}
   ngOnInit(){
     if(localStorage.getItem('isLogin') === 'y'){
-      this.commonService.loggedIn();
+      let token = localStorage.getItem('token');
+      this.commonService.loggedIn(token);
     }
   }
 }

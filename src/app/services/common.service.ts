@@ -9,6 +9,7 @@ const ApiUrl = "http://localhost:3000/api"
 export class CommonSerivce{
     isLoggedIn: boolean = false;
     loggedInSubject = new Subject<boolean>();
+    token: string = '';
     constructor(private http: HttpClient){}
     getLoggedInSub(){
         return this.loggedInSubject.asObservable();
@@ -16,15 +17,22 @@ export class CommonSerivce{
     getLoggedInFlag(){
         return this.isLoggedIn;
     }
-    loggedIn(){
+    getToken(){
+        return this.token;
+    }
+    loggedIn(token){
         this.isLoggedIn = true;
+        this.token = token;
         localStorage.setItem('isLogin', 'y');
+        localStorage.setItem('token', token);
         this.loggedInSubject.next(this.isLoggedIn);
     }
 
     loggedOut(){
         this.isLoggedIn = false;
+        this.token = '';
         localStorage.removeItem('isLogin');
+        localStorage.removeItem('token');
         this.loggedInSubject.next(this.isLoggedIn);
     }
 
