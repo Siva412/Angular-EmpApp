@@ -15,7 +15,9 @@
         <input matInput type="text" formControlName="name" />
         <mat-error *ngIf="addEmployeeForm.get('name').touched && addEmployeeForm.get('name').invalid">
           <span *ngIf="addEmployeeForm.get('name').errors?.required">Please enter Employee Name</span>
-          <span *ngIf="addEmployeeForm.get('name').errors?.maxlength || addEmployeeForm.get('name').errors?.minlength">Please enter a Name between 3 and 50</span>
+          <span
+            *ngIf="addEmployeeForm.get('name').errors?.maxlength || addEmployeeForm.get('name').errors?.minlength">Please
+            enter a Name between 3 and 50</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="add-form-field">
@@ -23,7 +25,9 @@
         <input matInput type="text" formControlName="designation" />
         <mat-error *ngIf="addEmployeeForm.get('designation').touched && addEmployeeForm.get('designation').invalid">
           <span *ngIf="addEmployeeForm.get('designation').errors?.required">Please enter Designation</span>
-          <span *ngIf="addEmployeeForm.get('designation').errors?.maxlength || addEmployeeForm.get('designation').errors?.minlength">Please enter a Desg between 3 and 50</span>
+          <span
+            *ngIf="addEmployeeForm.get('designation').errors?.maxlength || addEmployeeForm.get('designation').errors?.minlength">Please
+            enter a Desg between 3 and 50</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="add-form-field">
@@ -31,7 +35,9 @@
         <input matInput type="text" formControlName="domain" />
         <mat-error *ngIf="addEmployeeForm.get('domain').touched && addEmployeeForm.get('domain').invalid">
           <span *ngIf="addEmployeeForm.get('domain').errors?.required">Please enter Domain</span>
-          <span *ngIf="addEmployeeForm.get('domain').errors?.maxlength || addEmployeeForm.get('domain').errors?.minlength">Please enter Domain petween 3 and 50</span>
+          <span
+            *ngIf="addEmployeeForm.get('domain').errors?.maxlength || addEmployeeForm.get('domain').errors?.minlength">Please
+            enter Domain petween 3 and 50</span>
         </mat-error>
       </mat-form-field>
       <mat-form-field class="add-form-field">
@@ -41,6 +47,9 @@
             role
           }}</mat-option>
         </mat-select>
+        <mat-error *ngIf="addEmployeeForm.get('role').touched && addEmployeeForm.get('role').invalid">
+          <span *ngIf="addEmployeeForm.get('role').errors?.required">Please select Role</span>
+        </mat-error>
       </mat-form-field>
       <!-- <div formArrayName="roleType">
     <ng-container *ngFor="let control of roleFormArray.controls; let i = index">
@@ -58,10 +67,21 @@
         </mat-radio-group>
       </div>
       <div>
+        <div class="err-msg" *ngIf="addError">
+          <span>{{addError}}</span>
+        </div>
+        <div class="success-msg" *ngIf="addSuccess">
+          <span>{{addSuccess}}</span>
+        </div>
+        <div class="btn-group">
         <button class="login-btn" type="submit" mat-raised-button color="primary">
           {{isEdit?"MODIFY":"ADD"}}
         </button>
       </div>
+      </div>
     </form>
   </mat-card>
+</div>
+<div class="loader" *ngIf="showLoader">
+  <mat-spinner color="warm" diameter="50" strokeWidth="8"></mat-spinner>
 </div>

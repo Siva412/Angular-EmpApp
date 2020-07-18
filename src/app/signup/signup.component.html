@@ -15,7 +15,7 @@
         </mat-form-field>
         <mat-form-field>
             <mat-label>Password</mat-label>
-            <input matInput type="text" formControlName="password" autocomplete="off" />
+            <input matInput type="password" formControlName="password" autocomplete="off" />
             <mat-error *ngIf="(formSubmitted || signUpForm.get('password').touched) && signUpForm.get('password').invalid">
                 <span *ngIf="signUpForm.get('password')?.errors.required">Please enter password</span>
                 <span *ngIf="signUpForm.get('password')?.errors.minlength">Minimum length is 5</span>
@@ -25,5 +25,11 @@
             <button type="submit" mat-raised-button color="primary">Submit</button>
             <button type="button" [routerLink]="['/']" mat-stroked-button>Cancel</button>
         </div>
+        <div class="err-msg" *ngIf="signupError">
+            <span>{{signupError}}</span>
+        </div>
     </form>
+</div>
+<div class="loader" *ngIf="showLoader">
+    <mat-spinner color="warm" diameter="50" strokeWidth="8"></mat-spinner>
 </div>

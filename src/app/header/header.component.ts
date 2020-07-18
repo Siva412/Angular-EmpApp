@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   constructor(private router: Router, private commonService: CommonSerivce) { }
 
   ngOnInit() {
+    this.loggedInFlag = this.commonService.getLoggedInFlag();
     this.loggedInSubscrition = this.commonService.getLoggedInSub().subscribe((data: boolean) => {
       this.loggedInFlag = data;
     });

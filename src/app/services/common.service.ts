@@ -13,14 +13,18 @@ export class CommonSerivce{
     getLoggedInSub(){
         return this.loggedInSubject.asObservable();
     }
-
+    getLoggedInFlag(){
+        return this.isLoggedIn;
+    }
     loggedIn(){
         this.isLoggedIn = true;
+        localStorage.setItem('isLogin', 'y');
         this.loggedInSubject.next(this.isLoggedIn);
     }
 
     loggedOut(){
         this.isLoggedIn = false;
+        localStorage.removeItem('isLogin');
         this.loggedInSubject.next(this.isLoggedIn);
     }
 
@@ -30,5 +34,13 @@ export class CommonSerivce{
 
     signUpApi(signupData){
         return this.http.post(ApiUrl+'/user/signup', signupData);
+    }
+    commonHttp(method, url, reqObj?){
+        if(method === 'GET'){
+            return this.http.request(method,ApiUrl+url)
+        }
+        else if(method === 'POST'){
+            return this.http.request(method, ApiUrl+url, {body: reqObj});
+        }
     }
 }

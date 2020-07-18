@@ -8,7 +8,7 @@
             <mat-icon color="primary">add_circle</mat-icon><span>Add Employee</span>
         </div>
     </div>
-    <table mat-table [dataSource]="employeeList" class="mat-elevation-z8">
+    <table mat-table [dataSource]="employeeList" class="mat-elevation-z8" *ngIf="employeeList.data && employeeList.data.length > 0; else noEmpList">
         <mat-text-column name="name" headerText="Name"></mat-text-column>
         <mat-text-column name="empId" headerText="Employee ID"></mat-text-column>
         <mat-text-column name="role" headerText="Role"></mat-text-column>
@@ -29,4 +29,12 @@
         <tr mat-row *matRowDef="let row; columns: columnList"></tr>
     </table>
 </div>
+<ng-template #noEmpList>
+    <div>
+        No records found
+    </div>
+</ng-template>
 <app-modal *ngIf="showModal" (closeModal)="closeModal($event)">Do you want to delete the employee {{modalData.name}}?</app-modal>
+<div class="loader" *ngIf="showLoader">
+    <mat-spinner color="warm" diameter="50" strokeWidth="8"></mat-spinner>
+</div>

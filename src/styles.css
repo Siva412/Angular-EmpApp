@@ -17,9 +17,36 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mob-view{
     display: none !important;
 }
+.btn-group{
+    margin-top: 15px;
+}
 .btn-group button{
     margin-right: 10px;
     cursor: pointer;
+}
+.err-msg{
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.success-msg{
+    color: green;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.loader{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+}
+.loader mat-spinner{
+    top: 40%;
+    left: 44%;
+    z-index: 25;
 }
 @media (max-width:600px){
     .web-view{
